@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Price furniture prediction</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+
+   <body>
+      <div id="wrap">
+      <h1>Predict furniture price</h1>
+
+      <section id="furn" class="frame2">
+
+         <div class="login">
+
+            <form action="{{ url_for('predict')}}"method="post">
+            <table class="entryForm">
+
+            <tr>
+            <th>Category：</th>
+            <td>
+            <select id="category" name="category">
+               <option value="0">Bar furniture</option>
+               <option value="1">Beds</option>
+               <option value="2">Bookcases & shelving units</option>
+               <option value="3">Cabinets & cupboards</option>
+               <option value="4">Cafe furniture</option>
+               <option value="5">Chairs</option>
+               <option value="6">Chests of drawers & drawer units</option>
+               <option value="7">Children's furniture</option>
+               <option value="8">Nursery furniture</option>
+               <option value="9">Outdoor furniture</option>
+               <option value="10">Room dividers</option>
+               <option value="11">Sideboards, buffets & console tables</option>
+               <option value="12">Sofas & armchairs</option>
+               <option value="13">Tables & desks</option>
+               <option value="14">Trolleys</option>
+               <option value="15">TV & media furniture</option>
+               <option value="16">Wardrobes</option>
+            </select>
+            </td>
+            </tr>
+
+            <tr>
+            <th>Sellable Online：</th>
+            <td>
+            <input type="radio" name="sellable_online" value="1" checked>Yes
+            <input type="radio" name="sellable_online" value="0">No
+            </td>
+            </tr>
+
+            <tr>
+            <th>Other color：</th>
+            <td>
+            <input type="radio" name="other_colors" value="1" checked>Yes
+            <input type="radio" name="other_colors" value="0">No
+            </td>
+            </tr>
+
+            <tr>
+            <th>Depth：</th>
+            <td><input type="text" name="depth" placeholder="Depth cm" required="required" />
+            </tr>
+
+            <tr>
+            <th>Length：</th>
+            <td><input type="text" name="height" placeholder="Height cm" required="required" />
+            </tr>
+
+            <tr>
+            <th>Width：</th>
+            <td><input type="text" name="width" placeholder="Width cm" required="required" />
+            </tr>
+
+            </table>
+            <div class="btns">
+            <button type="reset" class="btn btn-clear">Reset</button>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </div>
+            </form>
+
+         </div>
+
+
+      </section>
+
+
+      <br>
+      <br>
+      {{prediction_text}}
+      </div>
+
+   </body>
+</html>
